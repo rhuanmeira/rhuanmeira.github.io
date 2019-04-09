@@ -2,28 +2,24 @@
 <head>
 <title>teste</title>
 </head>
-<body onload="slider">
+<body>
  
-<img id="slideshow">
+<img src="Img1.jpg" id="img">
 <script>
+  var Image = document.getElementById('img');
+  var imagemArray = ["Img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg"];
+  var i = 1;
+  
+  function trocarImg()
+  {
+   Image.setAttribute("scr", imagemArray[i]);
+   i++;
+  }
 
-   var i = 0; //ínicio do script
-   function trocarImg()
-   {
-    document.getElementById("slideshow").src="img"+(i++ % 6)+"
-    .jpg";   
-   }
+</script> 
+
+<button onclick="trocarImg()">próxima</button>
  
-   function slider()
-   {
-    setInterval(trocarImg, 1000);   
-   }
-
-</script>   
-
- 
-
-
 </body>
 </html>
 
