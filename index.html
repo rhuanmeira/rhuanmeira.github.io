@@ -4,22 +4,38 @@
 </head>
 <body>
  
-<img src="img1" id="img">
+ <img name="slider" height="300" width="500">
+
 <script>
-  var Image = document.getElementById('img');
-  var imagemArray = ["img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg"];
-  var i = 1;
-  
-  function trocarImg()
+  var i = 0;
+  var images = [];
+  var time = 3000;
+
+  images[0] = "img1.jpg";
+  images[1] = "img2.jpg";
+  images[2] = "img3.jpg";
+  images[3] = "img4.jpg";
+  images[4] = "img5.jpg";
+  images[5] = "img6.jpg";
+
+  function imagesChange()
   {
-   Image.setAttribute("scr", imagemArray[i]);
-   i++;
-   if (i > 5) {i=0;}
+   document.slider.src = images[i];
+   if(i < images.length - 1)
+   {
+    i++;
+   }
+   else
+   {
+    i = 0;
+   }
+    
+    timeout = setTimeout("imagesChange()",time);
   }
 
-</script> 
+  window.onload = changeImages;
 
-<button onclick="trocarImg()">próxima</button>
+</script> 
  
 </body>
 </html>
