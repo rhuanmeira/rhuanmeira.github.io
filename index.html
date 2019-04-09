@@ -1,12 +1,13 @@
-<html>
 <head>
 <title>teste</title>
 </head>
 <body>
- <script>
+ 
+<script>
+
    var i = 0; //ínicio do script
    var images = [];
-   var tempo = 3000;
+   var tempo = 1000;
   
    images[0] = 'Img1.jpg'; //Lista das imagens
    images[1] = 'img2.jpg';
@@ -14,25 +15,28 @@
    images[3] = 'img4.jpg';
    images[4] = 'img5.jpg';
    images[5] = 'img6.jpg';
-  
-   function trocaImg()
-  {
-   document.slide.src = images[i];
-   if(i < images.lenght - 1)
+ 
+   function changeImg()
    {
-    i++;
+    document.slide.src = images[i];
+    if(i < images.lenght)
+    {
+      i++;
+    }
+    else
+   {
+      i = 0;
+    }  
+     setTimeout("changeImg()", tempo)
+    
    }
-   else
-   {
-    i = 0;
-   }  
-   setTimeout("trocaImg()", tempo)
+ 
+   window.onload = changeImg;
+    
+</script>
 
-  }
-  window.onload = trocaImg;
- </script>
-  
   <img name="slide" width="400" height="200">
 
 </body>
 </html>
+
