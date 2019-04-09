@@ -15,10 +15,10 @@
 </div>    
  
 <script>
-  var myIndex = 0;
-  carousel();
+  var index = 0;
+  slideshow();
 
-  function carousel()
+  function slideshow()
   {
    var i;
    var x = document.getElementsByClassName("slide");
@@ -26,12 +26,11 @@
     {
       x[i].style.display = "none";                        
     }
-     myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
-   x[myIndex-1].style.display = "block";  
-   setTimeout(carousel, 3000);
-                    
-                }
+     index++;
+      if (index > x.length) {index = 1}    
+       x[index-1].style.display = "block";  
+        setTimeout(slideshow, 3000);                    
+  }
  </script>     
  
 </body>
