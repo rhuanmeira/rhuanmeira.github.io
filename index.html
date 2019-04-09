@@ -1,41 +1,27 @@
 <head>
 <title>teste</title>
 </head>
-<body>
+<body onload="slider">
  
+<img id="slideshow">
 <script>
 
    var i = 0; //ínicio do script
-   var images = [];
-   var tempo = 1000;
-  
-   images[0] = 'Img1.jpg'; //Lista das imagens
-   images[1] = 'img2.jpg';
-   images[2] = 'img3.jpg';
-   images[3] = 'img4.jpg';
-   images[4] = 'img5.jpg';
-   images[5] = 'img6.jpg';
- 
-   function changeImg()
+   function trocarImg()
    {
-    document.slide.src = images[i];
-    if(i < images.lenght)
-    {
-      i++;
-    }
-    else
-   {
-      i = 0;
-    }  
-     setTimeout("changeImg()", tempo)
-    
+    document.getElementById("slideshow").src="img"+(i++ % 6)+"
+    .jpg";   
    }
  
-   window.onload = changeImg;
-    
-</script>
+   function slider()
+   {
+    setInterval(trocarImg, 1000);   
+   }
 
-  <img name="slide" width="400" height="200">
+</script>   
+
+ 
+
 
 </body>
 </html>
