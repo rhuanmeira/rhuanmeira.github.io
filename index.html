@@ -4,38 +4,35 @@
 </head>
 <body>
  
- <img name="slider" height="300" width="500">
-
+<div class="Box">
+  <div style="max-width:500px">
+    <img class="slide" src="img1.jpg" style="width:100%">
+    <img class="slide" src="img2.jpg" style="width:100%">
+    <img class="slide" src="img3.jpg" style="width:100%">
+    <img class="slide" src="img4.jpg" style="width:100%">
+    <img class="slide" src="img5.jpg" style="width:100%">
+    <img class="slide" src="img6.jpg" style="width:100%">
+</div>    
+ 
 <script>
-  var i = 0;
-  var images = [];
-  var time = 3000;
+  var myIndex = 0;
+  carousel();
 
-  images[0] = "img1.jpg";
-  images[1] = "img2.jpg";
-  images[2] = "img3.jpg";
-  images[3] = "img4.jpg";
-  images[4] = "img5.jpg";
-  images[5] = "img6.jpg";
-
-  function imagesChange()
+  function carousel()
   {
-   document.slider.src = images[i];
-   if(i < images.length - 1)
-   {
-    i++;
-   }
-   else
-   {
-    i = 0;
-   }
-    
-    timeout = setTimeout("imagesChange()",time);
-  }
-
-  window.onload = changeImages;
-
-</script> 
+   var i;
+   var x = document.getElementsByClassName("slide");
+    for (i = 0; i < x.length; i++) 
+    {
+      x[i].style.display = "none";                        
+    }
+     myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+   x[myIndex-1].style.display = "block";  
+   setTimeout(carousel, 1000);
+                    
+                }
+ </script>     
  
 </body>
 </html>
